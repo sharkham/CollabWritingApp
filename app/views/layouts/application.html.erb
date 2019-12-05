@@ -10,7 +10,6 @@
   </head>
 
   <body>
-    <%= yield %>
     <div>
       <% if logged_in? %>
       <%= link_to "Logout", logout_path, method: "delete" %>
@@ -19,5 +18,7 @@
       <%= link_to "Log In", login_path %>
       <% end %>
     </div>
+    <%= yield %>
+
   </body>
 </html>
