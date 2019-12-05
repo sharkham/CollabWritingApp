@@ -11,8 +11,13 @@
 
   <body>
     <%= yield %>
-    <% if current_user %>
-    <%= link_to "Logout", logout_path, method: "delete" %>
-    <% end %>
+    <div>
+      <% if logged_in? %>
+      <%= link_to "Logout", logout_path, method: "delete" %>
+      <% else %>
+      <%= link_to "Sign In", signup_path %> |
+      <%= link_to "Log In", login_path %>
+      <% end %>
+    </div>
   </body>
 </html>
