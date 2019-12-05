@@ -1,3 +1,4 @@
-<% if @user = current_user %>
-Welcome <%= @user.username %>!
-<% end %>
+<%= "Welcome #{@user.username}!" if @user == current_user %>
+
+<h1><%= @user.username %></h1>
+<h2>Projects: </h2>
