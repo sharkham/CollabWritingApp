@@ -1,0 +1,8 @@
+<h1><%= @novel.title %></h1>
+
+<h2>Members:</h2>
+<% @novel.users.each do |user| %>
+  <%= link_to user_path(user.username) %>
+<% end %>
+
+<h2>Snippets:</h2>
