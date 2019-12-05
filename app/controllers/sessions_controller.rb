@@ -7,7 +7,10 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    binding.pry
+    if current_user
+      session.delete :user_id
+      redirect_to root_path
+    end
   end
 
 end
