@@ -2,3 +2,10 @@
 
 <h1><%= @user.username %></h1>
 <h2>Projects: </h2>
+<% if @user.novels %>
+<ul>
+<% @user.novels.each do |novel| %>
+  <li><%= link_to "#{novel.title}", novel_path(novel) %></li>
+</ul>
+<% end %>
+<% end %>
