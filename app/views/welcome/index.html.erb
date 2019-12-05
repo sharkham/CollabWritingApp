@@ -1,5 +1,6 @@
 <h1>Welcome!</h1>
 <br>
 <% if !current_user %>
-<%= link_to "Sign Up Here", "/signup" %> or Log In
+<%= link_to "Sign Up Here", signup_path %> or
+<%= link_to "Log In Here", login_path %>
 <% end %>
