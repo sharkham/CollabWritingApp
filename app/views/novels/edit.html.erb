@@ -1,0 +1,12 @@
+<h1>Edit novel</h1>
+
+<%= form_for @novel do |f| %>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %><br>
+  <br>
+  <%= f.label :summary %><br>
+  <%= f.text_area :summary %><br>
+  <br>
+  <%= f.submit %>
+
+<% end %>
