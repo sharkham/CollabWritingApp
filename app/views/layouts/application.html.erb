@@ -12,6 +12,8 @@
   <body>
     <div>
       <% if logged_in? %>
+      <%= link_to "Create New Novel", new_novel_path %> |
+      <%= link_to "Your Novels", novels_path %> |
       <%= link_to "Logout", logout_path, method: "delete" %>
       <% else %>
       <%= link_to "Sign Up", signup_path %> |
