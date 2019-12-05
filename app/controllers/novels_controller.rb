@@ -9,8 +9,11 @@ class NovelsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @novel = current_user.novels.build(novel_params)
     if @novel.save
+      # raise params.inspect
+      # @novel.memberships.last.novel_id = @novel.id
       redirect_to novel_path(@novel)
     else
       render :new
@@ -30,7 +33,15 @@ class NovelsController < ApplicationController
   private
 
   def novel_params
-    params.require(:novel).permit(:title, :summary)
+    params.require(:novel).permit(
+      :title,
+      :summary,
+      # :membership,
+      membership_attributes: [
+        :id,
+        :role,
+        :user_id
+      ] )
     #include membership attributes here membership_attributes: [array of attributes]
   end
 
