@@ -14,12 +14,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    if session.include? :user_id
-      @user = User.find(params[:id])
-      #redirect_to '/' if !@user
-    else
-      redirect_to root_path
-    end
+    redirect_if_not_logged_in
+    @user = User.find(params[:id])
+    redirect_to root_path if !@user
   end
 
   private
