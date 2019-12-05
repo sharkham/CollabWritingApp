@@ -31,6 +31,18 @@ class NovelsController < ApplicationController
     redirect_to root_path if !@novel
   end
 
+  def edit
+    @novel = Novel.find_by(id: params[:id])
+    redirect_to root_path if !@novel
+    #add functionality here later so user can only edit their own novel
+  end
+
+  def update
+    @novel = Novel.find_by(id: params[:id])
+    @novel.update(novel_params)
+    redirect_to novel_path(@novel)
+  end
+
   private
 
   def novel_params
