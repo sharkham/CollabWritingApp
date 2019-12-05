@@ -12,8 +12,9 @@ Rails.application.routes.draw do
     resources :novels, only: [:new, :index]
   end
 
+  resources :memberships
+
   resources :novels, only: [:create, :show, :edit, :update, :destroy] do
-    resources :memberships
     resources :snippets
   end
 
