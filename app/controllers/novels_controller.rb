@@ -6,6 +6,12 @@ class NovelsController < ApplicationController
   end
 
   def create
+    @novel = Novel.new(novel_params)
+    if @novel.save
+      redirect_to novel_path(@novel)
+    else
+      render :new
+    end
   end
 
   def index
