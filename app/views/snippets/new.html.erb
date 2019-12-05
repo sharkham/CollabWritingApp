@@ -1,0 +1,12 @@
+<%= form_for(@snippet, url: novel_snippets_path(@snippet.novel)) do |f| %>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %><br>
+  <%= f.label :summary %><br>
+  <%= f.text_area :summary %><br>
+  <%= f.label :content %><br>
+  <%= f.text_area :content %><br>
+  <%= f.label :type %><br>
+  <%= f.text_field :type %><br>
+  <%= f.submit %>
+<% end %>
+
