@@ -14,8 +14,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
-
+    if session.include? :user_id
+      @user = User.find(params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   private
