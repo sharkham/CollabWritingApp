@@ -17,6 +17,7 @@ class SnippetsController < ApplicationController
   end
 
   def index
+    @novel = Novel.find_by(id: params[:novel_id])
 
   end
 

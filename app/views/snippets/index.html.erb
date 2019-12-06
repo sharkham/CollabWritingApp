@@ -1,1 +1,11 @@
-<h1>Novel title</h1>
+<h1><%= @novel.title %></h1>
+<ul>
+<% @novel.snippets.each do |snippet| %>
+  <li><%= link_to "#{snippet.title}", novel_snippet_path(@novel, snippet) %>
+    <ul>
+      <li>Tag: <%= snippet.tag %></li>
+      <li>Summary: <%= snippet.summary %></li>
+    </ul>
+  </li>
+<% end %>
+</ul>
