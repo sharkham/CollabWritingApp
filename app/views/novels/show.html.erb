@@ -2,16 +2,19 @@
 
 <h2>Members:</h2>
 <% @novel.users.each do |user| %>
-  <%= link_to "#{user.username}", user_path(user) %>
+  <%= link_to "#{user.username}", user_path(user) %><br>
 <% end %>
 
+<h2>Summary: </h2>
 <p><%= @novel.summary %></p>
 
 <h2>Snippets:</h2>
 <% @novel.snippets.each do |snippet| %>
-  <%= link_to novel_snippet_path(@novel, snippet) %>
+  <%= link_to "#{snippet.title}", novel_snippet_path(@novel, snippet) %><br>
 <% end %>
-<%= link_to "New snippet", new_novel_snippet_path(@novel) %><br>
+
 <br>
+<%= link_to "New snippet", new_novel_snippet_path(@novel) %><br>
+
 
 <%= link_to "Edit Novel", edit_novel_path(@novel) %>
