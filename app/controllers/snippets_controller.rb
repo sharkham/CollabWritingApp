@@ -4,7 +4,7 @@ class SnippetsController < ApplicationController
   end
 
   def create
-    @snippet = Novel.find_by(id: params[:novel_id]).snippets.build
+    @snippet = Novel.find_by(id: params[:novel_id]).snippets.build(snippet_params)
     if @snippet.save
       redirect_to novel_path(@snippet.novel)
     else
@@ -13,11 +13,19 @@ class SnippetsController < ApplicationController
   end
 
   def edit
+    @snippet = Snippet.find_by(id: params[:snippet_id])
+    redirect_to novel_path(Novel.find_by(id: params[:novel_id])) if !@snippet
   end
 
   def update
   end
 
   def destroy
+  end
+
+  private
+
+  def snippet_params
+
   end
 end

@@ -7,7 +7,7 @@ class NovelsController < ApplicationController
     @membership = Membership.new
     #@novel = Novel.memberships.build
   end
-#TEST FOR ACTIONTEXT
+
   def create
     # binding.pry
     # @novel = Novel.new(novel_params)
