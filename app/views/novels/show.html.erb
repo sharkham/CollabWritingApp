@@ -8,10 +8,8 @@
 <h2>Summary: </h2>
 <p><%= @novel.summary %></p>
 
-<h2>Snippets:</h2>
-<% @novel.snippets.each do |snippet| %>
-  <%= link_to "#{snippet.title}", novel_snippet_path(@novel, snippet) %><br>
-<% end %>
+<h2><%= link_to "Snippets", novel_snippets_path(@novel) %></h2>
+
 
 <br>
 <%= link_to "New snippet", new_novel_snippet_path(@novel) %><br>
