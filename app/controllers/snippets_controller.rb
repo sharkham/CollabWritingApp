@@ -12,6 +12,10 @@ class SnippetsController < ApplicationController
     end
   end
 
+  def show
+    @snippet = Snippet.find_by(id: params[:id])
+  end
+
   def edit
     @snippet = Snippet.find_by(id: params[:snippet_id])
     redirect_to novel_path(Novel.find_by(id: params[:novel_id])) if !@snippet
