@@ -16,12 +16,19 @@ class SnippetsController < ApplicationController
     @snippet = Snippet.find_by(id: params[:id])
   end
 
+  def index
+
+  end
+
   def edit
     @snippet = Snippet.find_by(id: params[:id])
     redirect_to novel_path(Novel.find_by(id: params[:novel_id])) if !@snippet
   end
 
   def update
+    @snippet = Snippet.find_by(id: params[:id])
+    @snippet.update(snippet_params)
+    redirect_to novel_path(@snippet.novel)
   end
 
   def destroy

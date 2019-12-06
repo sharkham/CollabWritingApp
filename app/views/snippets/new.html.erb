@@ -1,3 +1,3 @@
 <h1><%= @snippet.novel.title %></h1>
 <h2>New Snippet:</h2>
-<%= render partial: "form", locals: {snippet: @snippet} %>
+<%= render partial: "form", locals: {snippet: @snippet, the_path: novel_snippets_path(@snippet.novel)} %>
