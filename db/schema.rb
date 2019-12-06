@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_002027) do
     t.string "title"
     t.text "content"
     t.text "summary"
-    t.string "type"
+    t.string "tag"
     t.integer "novel_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
