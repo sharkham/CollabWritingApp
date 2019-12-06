@@ -1,5 +1,11 @@
 <h1><%= @snippet.novel.title %></h1>
 <h2><%= @snippet.title %></h2>
+<h3>Tag:</h3>
 <p><%= @snippet.tag %></p>
+<h3>Summary:</h3>
 <p><%= @snippet.summary %></p>
+<h3>Content:</h3>
 <p><%= @snippet.content %></p>
+<br><br>
+<%= link_to "Edit Snippet", edit_novel_snippet_path(@snippet.novel, @snippet) %>
+
