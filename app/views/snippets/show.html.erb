@@ -8,4 +8,6 @@
 <p><%= @snippet.content %></p>
 <br><br>
 <%= link_to "Edit Snippet", edit_novel_snippet_path(@snippet.novel, @snippet) %>
+<br><br>
+<%= link_to "Back to list", novel_snippets_path(@snippet.novel) %>
 
