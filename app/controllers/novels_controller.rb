@@ -16,7 +16,7 @@ class NovelsController < ApplicationController
     if @novel.save
       @novel.memberships.build(role: novel_params[:membership][:role], user_id: novel_params[:membership][:user_id])
       @novel.save
-      current_user.save
+      # current_user.save
       # @membership = @novel.build(novel_id: @novel.id, user_id: novel_params[:membersh])
       # Membership.new(user_id: current_user.id, novel_id: @novel.id, role: "Admin")
       # raise params.inspect
