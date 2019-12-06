@@ -1,7 +1,7 @@
 <%= "Welcome #{@user.username}!" if @user == current_user %>
 
 <h1><%= @user.username %></h1>
-<h2>Projects: </h2>
+<h2>Novels: </h2>
 <% if @user.novels %>
 <ul>
 <% @user.novels.each do |novel| %>
