@@ -1,14 +1,16 @@
 <h1><%= @membership.novel.title %></h1>
 <h2>Add a new member:</h2>
 
-<% if !!User.not_members(@membership.novel) %>
+<%# if !!User.not_members(@membership.novel) %>
 <%= form_for(@membership, url: novel_memberships_path(@membership.novel)) do |f| %>
   <%= f.hidden_field :novel_id, value: @membership.novel.id %>
   <%= f.label :user_id %>
   <%= f.collection_select :user_id, User.all,:id,:username, include_blank: true %>
   <%= f.label :role %>
-  <%= f.text_field :role %>
+  <%= f.select :role, options_for_select(["Member", "Admin"], "Member") %>
+
+  <%# select_tag "credit_card", options_for_select([ "VISA", "MasterCard" ], "MasterCard") :role %>
   <%= f.submit %>
 
-<% end %>
+<%# end %>
 <% end %>
