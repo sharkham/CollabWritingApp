@@ -30,8 +30,11 @@ class SnippetsController < ApplicationController
 
   def update
     @snippet = Snippet.find_by(id: params[:id])
-    @snippet.update(snippet_params)
-    redirect_to novel_path(@snippet.novel)
+    if @snippet.update(snippet_params)
+      redirect_to novel_snippet_path(@snippet.novel, @snippet)
+    else
+      render :edit
+    end
   end
 
   def destroy

@@ -1,3 +1,13 @@
+<% if snippet.errors.any? %>
+  <div class="error_explanation">
+    <ul>
+    <% snippet.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for(snippet, url: the_path) do |f| %>
   <%= f.label :title %><br>
   <%= f.text_field :title %><br>
