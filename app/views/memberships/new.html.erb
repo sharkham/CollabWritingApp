@@ -5,7 +5,7 @@
 <%= form_for(@membership, url: novel_memberships_path(@membership.novel)) do |f| %>
   <%= f.hidden_field :novel_id, value: @membership.novel.id %>
   <%= f.label :user_id %>
-  <%= f.collection_select :user_id, User.not_members(@membership.novel),:id,:username, include_blank: true %>
+  <%= f.collection_select :user_id, User.all,:id,:username, include_blank: true %>
   <%= f.label :role %>
   <%= f.text_field :role %>
   <%= f.submit %>
