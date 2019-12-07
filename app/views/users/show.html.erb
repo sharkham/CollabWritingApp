@@ -7,3 +7,5 @@
 <% end %>
 </ul>
 <% end %>
+
+<%= link_to "Create New Novel", new_user_novel_path(current_user) if current_user == @user %>
