@@ -12,10 +12,9 @@ Rails.application.routes.draw do
     resources :novels, only: [:new, :index]
   end
 
-  resources :memberships
-
   resources :novels, only: [:create, :show, :edit, :update, :destroy] do
     resources :snippets
+    resources :memberships
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
