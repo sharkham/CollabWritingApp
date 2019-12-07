@@ -3,7 +3,7 @@
 <h2>Members:</h2>
 <%= link_to "Add New Member", new_novel_membership_path(@novel) %><br>
 <% @novel.users.each do |user| %>
-  <%= link_to "#{user.username}", user_path(user) %><br>
+  <%= link_to "#{user.username}", user_path(user) %> - <%= novel_membership(@novel, user) %><br>
 <% end %>
 
 <h2>Summary: </h2>
