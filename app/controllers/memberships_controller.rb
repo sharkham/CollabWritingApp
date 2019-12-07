@@ -15,6 +15,10 @@ class MembershipsController < ApplicationController
     end
   end
 
+  def index
+    @novel = Novel.find_by(id: params[:novel_id])
+  end
+
   def edit
     # @membership = Membership.find_by(id: )
   end
