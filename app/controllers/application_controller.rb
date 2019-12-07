@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !!session[:user_id]
-    # change this so it's checking for current_user instead
+    # change this so it's checking for current_user instead, not just any session id.
   end
 
   def require_login

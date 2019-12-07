@@ -1,4 +1,6 @@
 class SnippetsController < ApplicationController
+  before_action :require_login
+
   def new
     @snippet = Novel.find_by(id: params[:novel_id]).snippets.build
   end
