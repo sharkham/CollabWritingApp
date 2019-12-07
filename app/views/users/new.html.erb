@@ -1,5 +1,15 @@
 <h1>Sign up</h1>
 
+<% if @user.errors.any? %>
+  <div class="error_explanation">
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for(@user, url:'/signup') do |f| %>
 
   <%= f.label :username %>
