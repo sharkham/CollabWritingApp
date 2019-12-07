@@ -1,4 +1,5 @@
 class MembershipsController < ApplicationController
+  before_action :require_login
 
   def new
     @membership = Novel.find_by(id: params[:novel_id]).memberships.build
@@ -12,6 +13,16 @@ class MembershipsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    # @membership = Membership.find_by(id: )
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   private
