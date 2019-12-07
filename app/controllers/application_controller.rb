@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
     # change this so it's checking for current_user instead
   end
 
-  def redirect_if_not_logged_in
+  def require_login
+    flash[:message] = "You must be logged in to access that section"
     redirect_to root_path if !logged_in?
   end
 end
