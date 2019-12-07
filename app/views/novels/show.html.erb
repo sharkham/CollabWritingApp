@@ -1,6 +1,7 @@
 <h1><%= @novel.title %></h1>
 
 <h2>Members:</h2>
+<%= link_to "Add New Member", new_membership_path %><br>
 <% @novel.users.each do |user| %>
   <%= link_to "#{user.username}", user_path(user) %><br>
 <% end %>
