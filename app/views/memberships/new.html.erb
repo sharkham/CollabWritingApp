@@ -1,6 +1,7 @@
 <h1><%= @membership.novel.title %></h1>
 <h2>Add a new member:</h2>
 
+<% if !@users.nil? %>
 <%= form_for(@membership, url: novel_memberships_path(@membership.novel)) do |f| %>
   <%= f.hidden_field :novel_id, value: @membership.novel.id %>
   <%= f.label :user_id %>
@@ -9,6 +10,10 @@
   <%= f.select :role, options_for_select(["Member", "Admin"], "Member") %>
 
   <%= f.submit %>
+<% end %>
+<% else %>
+
+No more members to add
 
 <% end %>
 
