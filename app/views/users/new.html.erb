@@ -1,14 +1,13 @@
 <h1>Sign up</h1>
 
-<% if @user.errors.any? %>
+<% if !!flash[:errors] %>
   <div class="error_explanation">
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
+  <% flash[:errors].each do |err| %>
+    <p><%= err %></p>
+  <% end %>
   </div>
 <% end %>
+
 
 <%= form_for(@user, url:'/signup') do |f| %>
 
