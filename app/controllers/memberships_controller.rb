@@ -3,12 +3,15 @@ class MembershipsController < ApplicationController
 
   def new
     @membership = Novel.find_by(id: params[:novel_id]).memberships.build
+    @users = User.not_members(params[:novel_id])
   end
 
   def create
     # binding.pry
     @membership = Membership.new(membership_params)
-    if @membership.save
+    if @membership.valid?
+      @membership.save
+      #there's an error for if there are no more eligible members here, figure out how to get rid of.
       redirect_to novel_path(membership_params[:novel_id])
     else
       render :new
