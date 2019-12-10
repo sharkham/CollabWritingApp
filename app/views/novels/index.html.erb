@@ -1,1 +1,7 @@
 <h1>Your Novels</h1>
+<ul>
+<% @user.novels.each do |novel| %>
+  <li><%= link_to "#{novel.title}", novel_path(novel) %> - <%= novel_membership(novel, @user) %></li>
+<% end %>
+</ul>
+<%= link_to "Create New Novel", new_user_novel_path(current_user) if current_user == @user %>
