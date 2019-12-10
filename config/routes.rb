@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   delete '/logout' => "sessions#destroy"
 
+  get '/auth/google_oauth2/callback' => "sessions#omniauth"
+
   resources :users do
     resources :novels, only: [:new, :index]
   end
