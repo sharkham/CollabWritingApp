@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def show
     require_login
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
     redirect_to root_path if !@user
   end
 
