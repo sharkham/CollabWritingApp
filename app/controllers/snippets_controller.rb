@@ -16,11 +16,18 @@ class SnippetsController < ApplicationController
 
   def show
     @snippet = Snippet.find_by(id: params[:id])
+    if !member_of?(@snippet.novel)
+      flash[:message] = "You can only view novels you are a member of."
+      redirect_to user_path(current_user)
+    end
   end
 
   def index
     @novel = Novel.find_by(id: params[:novel_id])
-
+    if !member_of?(@novel)
+      flash[:message] = "You can only view novels you are a member of."
+      redirect_to user_path(current_user)
+    end
   end
 
   def edit
