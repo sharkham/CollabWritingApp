@@ -4,4 +4,4 @@
   <li><%= link_to "#{novel.title}", novel_path(novel) %> - <%= novel_membership(novel, @user) %></li>
 <% end %>
 </ul>
-<%= link_to "Create New Novel", new_user_novel_path(current_user) if current_user == @user %>
+<%= link_to "Create New Novel", new_novel_path if current_user == @user %>
