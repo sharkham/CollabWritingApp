@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def member_of?(novel)
+    current_user.novels && current_user.novels.include?(novel)
+  end
+
 end
