@@ -1,4 +1,7 @@
 <h1><%= @user.username %></h1>
+<div class="error_explanation">
+<%= flash[:own_novels] if flash[:own_novels] %>
+</div>
 <h2>Bio: </h2>
 
 <%= link_to "Your Novels", user_novels_path(current_user) if current_user == @user %>

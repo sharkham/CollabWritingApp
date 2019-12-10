@@ -32,6 +32,7 @@ class NovelsController < ApplicationController
   def index
     @user = User.find_by(id: params[:user_id])
     if @user != current_user
+      flash[:own_novels] = "You can only view your own novels."
       # flash[:message] = "You can only view your own novels."
       redirect_to user_path(current_user)
     end
