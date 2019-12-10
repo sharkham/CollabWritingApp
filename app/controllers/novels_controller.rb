@@ -32,7 +32,7 @@ class NovelsController < ApplicationController
   def index
     @user = User.find_by(id: params[:user_id])
     if @user != current_user
-      flash[:own_novels] = "You can only view your own novels."
+      flash[:message] = "You can only view your own novel list."
       # flash[:message] = "You can only view your own novels."
       redirect_to user_path(current_user)
     end
@@ -40,7 +40,14 @@ class NovelsController < ApplicationController
 
   def show
     @novel = Novel.find_by(id: params[:id])
-    redirect_to root_path if !@novel
+    if !current_user.member_of?(@novel)
+      flash[:message] = "You can only view novels you are a member of."
+      redirect_to user_path(current_user)
+    # elsif !@novel
+    #   flash[:message] = "This novel does not exist."
+    #   redirect_to user_path(current_user)
+    end
+    # redirect_to root_path if !@novel
   end
 
   def edit
