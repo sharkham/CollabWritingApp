@@ -40,4 +40,8 @@ class User < ApplicationRecord
     end
   end
 
+  def member_of?(novel)
+    self.novels && self.novels.include?(novel)
+  end
+
 end
