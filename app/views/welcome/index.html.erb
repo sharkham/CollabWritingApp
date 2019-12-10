@@ -1,5 +1,5 @@
 <h1>Welcome!</h1>
-<% if flash[:message] %>
-<%= flash[:message] %>
-<% end %>
+<div class="error_explanation">
+<%= flash[:message] if flash[:message] %>
+</div>
 <p>This is a collaborative novel writing app.</p>
