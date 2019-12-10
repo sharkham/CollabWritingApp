@@ -1,7 +1,6 @@
 <h1><%= @membership.novel.title %></h1>
 <h2>Add a new member:</h2>
 
-<%# if !!User.not_members(@membership.novel) %>
 <%= form_for(@membership, url: novel_memberships_path(@membership.novel)) do |f| %>
   <%= f.hidden_field :novel_id, value: @membership.novel.id %>
   <%= f.label :user_id %>
@@ -9,8 +8,8 @@
   <%= f.label :role %>
   <%= f.select :role, options_for_select(["Member", "Admin"], "Member") %>
 
-  <%# select_tag "credit_card", options_for_select([ "VISA", "MasterCard" ], "MasterCard") :role %>
   <%= f.submit %>
 
-<%# end %>
 <% end %>
+
+<%= link_to "Back to Novel", novel_path(@membership.novel) %>
