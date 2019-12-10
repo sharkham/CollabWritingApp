@@ -62,6 +62,9 @@ class NovelsController < ApplicationController
     redirect_to novel_path(@novel)
   end
 
+  def destroy
+  end
+
   private
 
   def novel_params
