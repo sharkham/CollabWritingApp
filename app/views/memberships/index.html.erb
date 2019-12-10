@@ -6,3 +6,6 @@
   <%= novel_membership(@novel, user) %>
   <br>
 <% end %>
+
+<%= link_to "Add New Member", new_novel_membership_path(@novel) %><br>
+<%= link_to "Back to Novel", novel_path(@novel) %>
