@@ -3,6 +3,10 @@ class SnippetsController < ApplicationController
 
   def new
     @snippet = Novel.find_by(id: params[:novel_id]).snippets.build
+    if !member_of?(@snippet.novel)
+      flash[:message] = "You can only create snippets of novels you are a member of."
+      redirect_to user_path(current_user)
+    end
   end
 
   def create
