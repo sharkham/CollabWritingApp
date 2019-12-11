@@ -1,9 +1,23 @@
 class MembershipsController < ApplicationController
   before_action :require_login
 
+
+
+
   def new
-    @membership = Novel.find_by(id: params[:novel_id]).memberships.build
-    @users = User.not_members(params[:novel_id])
+    # binding.pry
+    @novel = Novel.find_by(id: params[:novel_id])
+    if !@novel
+      flash[:message] = "This novel does not exist."
+      redirect_to user_path(current_user)
+    elsif !admin_of?(@novel)
+      flash[:message] = "You can only create memberships for novels you are an Admin of."
+      redirect_to novel_path(@novel)
+    else
+      @membership = @novel.memberships.build
+      @users = User.not_members(params[:novel_id])
+    end
+
   end
 
   def create

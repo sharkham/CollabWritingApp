@@ -35,4 +35,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # def require_admin_of_novel
+  #   relevant_novel = Novel.find_by(id: params[:novel_id])
+  #   if !admin_of?(relevant_novel)
+  #     flash[:message] = "You must be a novel Admin to access that section."
+  #     redirect_to novel_path(relevant_novel)
+  #   end
+  # end
+
 end
