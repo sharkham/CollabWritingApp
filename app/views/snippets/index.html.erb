@@ -1,4 +1,8 @@
 <h1><%= @novel.title %></h1>
+<div class="error_explanation">
+<%= flash[:message] if flash[:message] %>
+</div>
+
 <ul>
 <% @novel.snippets.each do |snippet| %>
   <li><%= link_to "#{snippet.title}", novel_snippet_path(@novel, snippet) %>

@@ -20,7 +20,10 @@ class SnippetsController < ApplicationController
 
   def show
     @snippet = Snippet.find_by(id: params[:id])
-    if !member_of?(@snippet.novel)
+    if !@snippet
+      flash[:message] = "This snippet does not exist."
+      redirect_to novel_snippets_path(Novel.find_by(id: params[:novel_id]))
+    elsif !member_of?(@snippet.novel)
       flash[:message] = "You can only view novels you are a member of."
       redirect_to user_path(current_user)
     end
@@ -36,7 +39,13 @@ class SnippetsController < ApplicationController
 
   def edit
     @snippet = Snippet.find_by(id: params[:id])
-    redirect_to novel_path(Novel.find_by(id: params[:novel_id])) if !@snippet
+    if !@snippet
+      flash[:message] = "This snippet does not exist."
+      redirect_to novel_snippets_path(Novel.find_by(id: params[:novel_id]))
+    elsif !member_of?(@snippet.novel)
+      flash[:message] = "You can only edit snippets from novels you are a member of."
+      redirect_to user_path(current_user)
+    end
   end
 
   def update
