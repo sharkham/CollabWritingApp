@@ -1,11 +1,7 @@
 class MembershipsController < ApplicationController
   before_action :require_login
 
-
-
-
   def new
-    # binding.pry
     @novel = Novel.find_by(id: params[:novel_id])
     if !@novel
       flash[:message] = "This novel does not exist."
@@ -34,6 +30,10 @@ class MembershipsController < ApplicationController
 
   def index
     @novel = Novel.find_by(id: params[:novel_id])
+    if !@novel
+      flash[:message] = "This novel does not exist."
+      redirect_to user_path(current_user)
+    end
   end
 
   def edit
