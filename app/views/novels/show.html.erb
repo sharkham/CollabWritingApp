@@ -17,5 +17,7 @@
 <%= link_to "View Memberships", novel_memberships_path(@novel) %>
 <br><br>
 
+<% if admin_of?(@novel) %>
 <%= link_to "Edit Novel", edit_novel_path(@novel) %><br>
+<% end %>
 <%= link_to "Back to your novels", user_novels_path(current_user) %>
