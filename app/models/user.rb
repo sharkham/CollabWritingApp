@@ -4,8 +4,8 @@ class User < ApplicationRecord
   has_secure_password
 
   validates :username, :email, presence: true
-  validates :username, :email, uniqueness: { case_sensitive: false }
-  validates :password, length: { in: 5..20, wrong_length: "Password must be between 5 and 20 characters." }
+  validates :email, uniqueness: { case_sensitive: false }
+  validates :password, length: { minimum: 5, wrong_length: "Password must be at least 5 characters." }
 
   # def self.not_members(novel)
   #   # self.where()
@@ -33,9 +33,9 @@ class User < ApplicationRecord
   end
 
   def self.from_omniauth(auth)
-    where(email: auth.info.email).first_or_initialize do |user|
-      user.username = auth.info.name
-      user.email = auth.info.email
+
+    self.where(email: auth["info"]["email"]).first_or_create do |user|
+      user.username = auth["info"]["name"]
       user.password = SecureRandom.hex
     end
   end
