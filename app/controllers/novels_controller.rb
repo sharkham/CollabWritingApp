@@ -38,7 +38,9 @@ class NovelsController < ApplicationController
     if !@novel
       flash[:message] = "This novel does not exist."
       redirect_to root_path
-    elsif !admin_of(@novel)
+    # elsif !member_of?(@novel)
+
+    elsif !admin_of?(@novel)
       flash[:message] = "You can only edit novels you are an Admin of."
       redirect_to novel_path(@novel)
     end
