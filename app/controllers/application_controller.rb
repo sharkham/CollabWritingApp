@@ -21,4 +21,18 @@ class ApplicationController < ActionController::Base
     current_user.novels && current_user.novels.include?(novel)
   end
 
+  def admin_of?(novel)
+    #if the user has memberships and if the user is a member of this novel, then:
+    if !!current_user.memberships && !!current_user.memberships.find_by(novel_id: novel.id)
+      membership = current_user.memberships.find_by(novel_id: novel.id)
+      if membership.role == "Admin"
+        return true
+      else
+        return false
+      end
+    else
+      return false
+    end
+  end
+
 end
