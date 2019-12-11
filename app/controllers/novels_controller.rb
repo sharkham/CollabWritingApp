@@ -52,6 +52,9 @@ class NovelsController < ApplicationController
   end
 
   def destroy
+    Novel.find_by(id: params[:id]).destroy
+    flash[:message] = "Novel was successfully deleted."
+    redirect_to user_path(current_user)
   end
 
   private
