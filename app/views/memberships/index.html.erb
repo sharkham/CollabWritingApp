@@ -7,7 +7,7 @@
 <ul>
 <% @novel.memberships.each do |membership| %>
   <li><%= link_to "#{membership.user.username}", user_path(membership.user) %> -
-  <%= novel_membership(@novel, membership.user) %></li>
+  <%= membership.role %></li>
   <ul>
   <li><%= link_to "Edit Membership", edit_novel_membership_path(@novel, membership) %></li>
   <li></li>
