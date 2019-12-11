@@ -59,6 +59,7 @@ class SnippetsController < ApplicationController
 
   def destroy
     Snippet.find_by(id: params[:id]).destroy
+    # binding.pry
     redirect_to novel_snippets_path(Novel.find_by(id: params[:novel_id]))
   end
 
