@@ -35,7 +35,13 @@ class NovelsController < ApplicationController
 
   def edit
     @novel = Novel.find_by(id: params[:id])
-    redirect_to root_path if !@novel
+    if !@novel
+      flash[:message] = "This novel does not exist."
+      redirect_to root_path
+    elsif !admin_of(@novel)
+      flash[:message] = "You can only edit novels you are an Admin of."
+      redirect_to novel_path(@novel)
+    end
     #add functionality here later so user can only edit their own novel
   end
 
