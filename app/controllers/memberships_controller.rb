@@ -13,7 +13,6 @@ class MembershipsController < ApplicationController
       @membership = @novel.memberships.build
       @users = User.not_members(params[:novel_id])
     end
-
   end
 
   def create
@@ -37,7 +36,15 @@ class MembershipsController < ApplicationController
   end
 
   def edit
-    # @membership = Membership.find_by(id: )
+    @membership = Membership.find_by(id: params[:id])
+    @novel = Novel.find_by(id: params[:novel_id])
+    if !@membership
+      flash[:message] = "This membership does not exist."
+      redirect_to novel_memberships_path(@novel)
+    elsif !admin_of?(@novel)
+      flash[:message] = "You can only edit memberships for novels you are an Admin of."
+      redirect_to  novel_memberships_path(@novel)
+    end
   end
 
   def update
