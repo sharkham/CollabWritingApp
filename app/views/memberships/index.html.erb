@@ -1,11 +1,17 @@
 <h1><%= @novel.title %></h1>
 <h2>Members:</h2>
 
-<% @novel.users.each do |user| %>
-  <%= link_to "#{user.username}", user_path(user) %> -
-  <%= novel_membership(@novel, user) %>
+<ul>
+<% @novel.memberships.each do |membership| %>
+  <li><%= link_to "#{membership.user.username}", user_path(membership.user) %> -
+  <%= novel_membership(@novel, membership.user) %></li>
+  <ul>
+  <li><%= link_to "Edit Membership", edit_novel_membership_path(@novel, membership) %></li>
+  <li></li>
+  </ul>
   <br>
 <% end %>
+</ul>
 
 <%= link_to "Add New Member", new_novel_membership_path(@novel) %><br>
 <%= link_to "Back to Novel", novel_path(@novel) %>

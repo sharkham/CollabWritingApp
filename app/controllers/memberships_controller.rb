@@ -43,7 +43,7 @@ class MembershipsController < ApplicationController
       redirect_to novel_memberships_path(@novel)
     elsif !admin_of?(@novel)
       flash[:message] = "You can only edit memberships for novels you are an Admin of."
-      redirect_to  novel_memberships_path(@novel)
+      redirect_to novel_memberships_path(@novel)
     end
   end
 
