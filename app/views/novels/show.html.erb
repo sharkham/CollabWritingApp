@@ -19,5 +19,6 @@
 
 <% if admin_of?(@novel) %>
 <%= link_to "Edit Novel", edit_novel_path(@novel) %><br>
+<%= button_to "Delete Novel", novel_path(@novel), method: :delete, data: { confirm: "Really? This will delete all snippets as well." } %>
 <% end %>
 <%= link_to "Back to your novels", user_novels_path(current_user) %>
