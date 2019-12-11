@@ -12,7 +12,7 @@ class SnippetsController < ApplicationController
   def create
     @snippet = Novel.find_by(id: params[:novel_id]).snippets.build(snippet_params)
     if @snippet.save
-      redirect_to novel_path(@snippet.novel)
+      redirect_to novel_snippets_path(@snippet.novel)
     else
       render :new
     end
