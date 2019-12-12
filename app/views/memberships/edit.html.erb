@@ -1,7 +1,7 @@
 <h1><%= @membership.novel.title %></h1>
 <h2>Edit <%= @membership.user.username %>'s membership:</h2>
 
-<%= form_for(@membership, url: novel_memberships_path(@membership.novel)) do |f| %>
+<%= form_for(@membership, url: novel_membership_path(@membership.novel, @membership)) do |f| %>
   <%= f.hidden_field :novel_id, value: @membership.novel.id %>
   <%= f.hidden_field :user_id, value: @membership.user.id %>
   <%= f.label :role %>

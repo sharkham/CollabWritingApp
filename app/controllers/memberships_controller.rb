@@ -48,6 +48,9 @@ class MembershipsController < ApplicationController
   end
 
   def update
+    @membership = Membership.find_by(id: params[:id])
+    @membership.update(membership_params)
+    redirect_to novel_memberships_path(@membership.novel)
   end
 
   def destroy
