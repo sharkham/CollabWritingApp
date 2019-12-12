@@ -29,10 +29,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    binding.pry
+    @user = User.find_by(id: params[:id])
+    if @user.update(bio_param)
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
+  end
+
 
   private
 
   def user_params
     params.require(:user).permit(:username, :email, :password)
+  end
+
+  def bio_param
+    params.require(:user).permit(:bio)
   end
 end
