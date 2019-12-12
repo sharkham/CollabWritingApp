@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/auth/google_oauth2/callback' => 'sessions#omniauth'
 
   resources :users do
-    resources :novels, only: [:index]
+    resources :novels, only: [:index, :create]
   end
 
   resources :novels, only: [:new, :create, :show, :edit, :update, :destroy] do
