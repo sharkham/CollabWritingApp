@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :novels, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :snippets
-    resources :memberships
+    resources :memberships, only: [:new, :create, :index, :edit, :update, :destroy]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
