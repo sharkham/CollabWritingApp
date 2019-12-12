@@ -54,6 +54,8 @@ class MembershipsController < ApplicationController
   end
 
   def destroy
+    Membership.find_by(id: params[:id]).destroy
+    redirect_to novel_memberships_path(Novel.find_by(id: params[:novel_id]))
   end
 
   private
