@@ -32,6 +32,9 @@ class MembershipsController < ApplicationController
     if !@novel
       flash[:message] = "This novel does not exist."
       redirect_to user_path(current_user)
+    elsif !admin_of?(@novel)
+      flash[:message] = "You can only view membership index for novels you are an Admin of."
+      redirect_to novel_path(@novel)
     end
   end
 
