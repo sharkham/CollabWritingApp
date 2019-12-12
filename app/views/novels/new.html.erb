@@ -1,5 +1,13 @@
 <h1>Create a new novel</h1>
 
+<% if !!flash[:errors] %>
+  <div class="error_explanation">
+  <% flash[:errors].each do |err| %>
+    <p><%= err %></p>
+  <% end %>
+  </div>
+<% end %>
+
 <%= form_for @novel do |f| %>
   <%= f.fields_for :membership do |mem| %>
     <%= mem.hidden_field :user_id, :value => current_user.id %>
