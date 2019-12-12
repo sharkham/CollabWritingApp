@@ -14,7 +14,9 @@
 <% @novel.users.each do |user| %>
   <%= link_to "#{user.username}", user_path(user) %> - <%= @novel.memberships.find_by(user_id: user.id).role %><br>
 <% end %>
+<% if admin_of?(@novel) %>
 <%= link_to "View Memberships", novel_memberships_path(@novel) %>
+<% end %>
 <br><br>
 
 <% if admin_of?(@novel) %>
