@@ -12,9 +12,10 @@
   <%= f.submit %>
 <% end %>
 <% else %>
-
+<div class="error_explanation">
 No more members to add
-
+</div>
+<br><br>
 <% end %>
 
 <%= link_to "Back to Novel", novel_path(@membership.novel) %>
