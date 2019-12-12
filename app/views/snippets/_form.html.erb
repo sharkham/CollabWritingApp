@@ -16,6 +16,6 @@
   <%= f.label :content %><br>
   <%= f.text_area :content %><br>
   <%= f.label :tag %><br>
-  <%= f.text_field :tag %><br>
+  <%= f.select(:tag, ["chapter", "scene", "development", "uncategorized"]) %>
   <%= f.submit %>
 <% end %>
