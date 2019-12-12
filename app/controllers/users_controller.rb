@@ -30,13 +30,19 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
+    # binding.pry
     @user = User.find_by(id: params[:id])
-    if @user.update(bio_param)
+    @user.bio = params[:user][:bio]
+    if @user.save
       redirect_to user_path(@user)
     else
       render :edit
     end
+    # if @user.update_attributes(bio_param)
+    #   redirect_to user_path(@user)
+    # else
+    #   render :edit
+    # end
   end
 
 

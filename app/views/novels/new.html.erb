@@ -1,7 +1,7 @@
 <h1>Create a new novel</h1>
 
 <%= form_for @novel do |f| %>
-  <%= f.fields_for @membership do |mem| %>
+  <%= f.fields_for :membership do |mem| %>
     <%= mem.hidden_field :user_id, :value => current_user.id %>
     <%= mem.hidden_field :role, :value => "Admin" %>
   <% end %>

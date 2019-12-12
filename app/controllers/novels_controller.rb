@@ -3,7 +3,6 @@ class NovelsController < ApplicationController
 
   def new
     @novel = Novel.new
-    @membership = Membership.new
   end
 
   def create
@@ -13,6 +12,7 @@ class NovelsController < ApplicationController
       @novel.save
       redirect_to novel_path(@novel)
     else
+      flash[:errors] = @novel.errors.full_messages
       render :new
     end
   end
