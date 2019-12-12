@@ -10,7 +10,7 @@
   <%= membership.role %></li>
   <ul>
   <li><%= link_to "Edit Membership", edit_novel_membership_path(@novel, membership) %></li>
-  <li></li>
+  <li><%= button_to "Delete Membership", novel_membership_path(@novel, membership), method: :delete, data: { confirm: "Are you sure?" } %></li>
   </ul>
   <br>
 <% end %>
