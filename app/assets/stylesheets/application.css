@@ -127,6 +127,10 @@
   .title {
     font-weight: bold;
   }
+
+  ul li {
+    margin: 5px;
+  }
 }
 
 

@@ -9,13 +9,17 @@
 <% end %>
 
 <%= form_for(snippet, url: the_path) do |f| %>
-  <p><%= f.label :title %></p>
-  <p><%= f.text_field :title %></p>
-  <p><%= f.label :summary %></p>
-  <p><%= f.text_area :summary %></p>
-  <p><%= f.label :content %></p>
-  <p><%= f.rich_text_area :content %></p>
-  <p><%= f.label :tag %></p>
-  <p><%= f.select(:tag, ["chapter", "scene", "development", "uncategorized"]) %></p>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %><br>
+  <br>
+  <%= f.label :summary %><br>
+  <%= f.text_area :summary %><br>
+  <br>
+  <%= f.label :content %><br>
+  <%= f.rich_text_area :content %><br>
+  <br>
+  <%= f.label :tag %><br>
+  <%= f.select(:tag, ["chapter", "scene", "development", "uncategorized"]) %><br>
+  <br>
   <%= f.submit %>
 <% end %>

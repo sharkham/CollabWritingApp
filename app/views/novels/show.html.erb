@@ -19,7 +19,7 @@
 <br><br>
 
 <% if admin_of?(@novel) %>
-<p><%= link_to "Edit Novel", edit_novel_path(@novel), class: "myButton" %></p>
-<p><%= button_to "Delete Novel", novel_path(@novel), method: :delete, data: { confirm: "Are you sure? This will delete all snippets as well." }, class: "myButton" %></p>
+<p><%= link_to "Edit Novel", edit_novel_path(@novel) %></p>
+<p><%= button_to "Delete Novel", novel_path(@novel), method: :delete, data: { confirm: "Are you sure? This will delete all snippets as well." } %></p>
 <% end %>
 <%= link_to "Back to Your Novels", user_novels_path(current_user) %>
