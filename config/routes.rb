@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get '/auth/google_oauth2/callback' => 'sessions#omniauth'
 
-  post '/sorted' => "snippets#sorted"
+  post '/novels/:id/snippets' => "snippets#sorted"
 
   resources :users do
     resources :novels, only: [:index, :create]

@@ -1,6 +1,6 @@
-<%= form_tag("/sorted") do %>
-<%= hidden_field_tag "novel_id", params[:novel_id] %>
+<%= form_tag("/novels/#{novel.id}/snippets") do %>
+<%= hidden_field_tag "novel_id", novel.id %>
 <%= label_tag "tag", "Only show type: "%>
-<%= select_tag "tag", options_for_select(snippet_tags(novel)), include_blank: true %>
+<%= select_tag "tag", options_for_select(snippet_tags(novel)) %>
 <%= submit_tag "Sort" %>
 <% end %>
