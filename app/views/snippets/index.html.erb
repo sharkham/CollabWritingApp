@@ -4,7 +4,7 @@
 </div>
 
 <ul>
-<% @novel.snippets.each do |snippet| %>
+<% @snippets.each do |snippet| %>
   <li><%= link_to "#{snippet.title}", novel_snippet_path(@novel, snippet) %>
     <ul>
       <li>Tag: <%= snippet.tag %></li>
