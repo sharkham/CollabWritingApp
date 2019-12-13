@@ -15,7 +15,7 @@
 <div class="error_explanation">
 No more members to add
 </div>
-<br><br>
 <% end %>
-
+<br><br>
+<%= link_to "Back to Memberships", novel_memberships_path(@membership.novel) %><br>
 <%= link_to "Back to Novel", novel_path(@membership.novel) %>
