@@ -16,7 +16,7 @@
 <br><br>
 <%= form_tag("/sorted") do %>
 <%= label_tag "tag", "Only show type: "%>
-<%= select_tag "tag", options_for_select(["chapter", "scene", "development", "uncategorized"]), include_blank: true %>
+<%= select_tag "tag", options_for_select(snippet_tags(@novel)), include_blank: true %>
 <%= submit_tag "Sort" %>
 <% end %>
 <%= link_to "New snippet", new_novel_snippet_path(@novel) %><br>
