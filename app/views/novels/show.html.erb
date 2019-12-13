@@ -4,7 +4,6 @@
 <%= flash[:message] if flash[:message] %>
 </div>
 
-<h2>Summary: </h2>
 <p><%= @novel.summary %></p>
 
 <h2><%= link_to "Snippets", novel_snippets_path(@novel) %></h2>
@@ -20,7 +19,7 @@
 <br><br>
 
 <% if admin_of?(@novel) %>
-<%= link_to "Edit Novel", edit_novel_path(@novel) %><br>
-<%= button_to "Delete Novel", novel_path(@novel), method: :delete, data: { confirm: "Are you sure? This will delete all snippets as well." } %>
+<p><%= link_to "Edit Novel", edit_novel_path(@novel), class: "myButton" %></p>
+<p><%= button_to "Delete Novel", novel_path(@novel), method: :delete, data: { confirm: "Are you sure? This will delete all snippets as well." }, class: "myButton" %></p>
 <% end %>
 <%= link_to "Back to Your Novels", user_novels_path(current_user) %>

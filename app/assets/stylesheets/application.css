@@ -122,6 +122,10 @@
     text-decoration:none;
     text-shadow:0px 0px 0px #0af5c6;
   }
+
+  .title {
+    font-weight: bold;
+  }
 }
 
 

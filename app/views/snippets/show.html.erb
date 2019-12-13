@@ -7,7 +7,7 @@
 <h3>Content:</h3>
 <p><%= @snippet.content %></p>
 <br><br>
-<%= link_to "Edit Snippet", edit_novel_snippet_path(@snippet.novel, @snippet) %>
+<%= link_to "Edit Snippet", edit_novel_snippet_path(@snippet.novel, @snippet), class: "myButton" %>
 <br><br>
 <%= button_to "Delete Snippet", novel_snippet_path(@snippet.novel, @snippet), method: :delete, data: { confirm: "Are you sure?" }, class: "myButton" %>
 <br><br>
