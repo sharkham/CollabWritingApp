@@ -37,10 +37,10 @@ class SnippetsController < ApplicationController
     end
   end
 
-  # def chapters_only
-  #   @novel = Novel.find_by(id: params[:novel_id])
-  #   render :index
-  # end
+  def sorted
+    @novel = Novel.find_by(id: params[:novel_id])
+    render :index
+  end
 
   def edit
     @snippet = Snippet.find_by(id: params[:id])
