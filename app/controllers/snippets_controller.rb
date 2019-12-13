@@ -39,7 +39,9 @@ class SnippetsController < ApplicationController
   end
 
   def sorted
+    # binding.pry
     @novel = Novel.find_by(id: params[:novel_id])
+    @snippets = @novel.snippets.where(tag: params[:tag])
     render :index
   end
 
