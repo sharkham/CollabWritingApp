@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :memberships, only: [:new, :create, :index, :edit, :update, :destroy]
   end
 
-  post '/novels/:id/snippets' => "snippets#sorted"
+  post '/novels/:id/snippets/sorted' => "snippets#sorted"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
