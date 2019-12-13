@@ -14,7 +14,7 @@
 <% end %>
 </ul>
 <br><br>
-<% if !@novel.snippets.empty? %>
+<% if @novel.snippets.length > 1 %>
 <%= render partial: "sort_form", locals: {novel: @novel} %>
 <% end %>
 

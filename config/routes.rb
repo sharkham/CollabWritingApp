@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get '/auth/google_oauth2/callback' => 'sessions#omniauth'
 
-  post '/novels/:id/snippets' => "snippets#sorted"
+
 
   resources :users do
     resources :novels, only: [:index, :create]
@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     resources :snippets
     resources :memberships, only: [:new, :create, :index, :edit, :update, :destroy]
   end
+
+  post '/novels/:id/snippets' => "snippets#sorted"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
