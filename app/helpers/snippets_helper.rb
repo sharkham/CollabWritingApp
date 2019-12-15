@@ -5,5 +5,6 @@ module SnippetsHelper
       snippet.tag
     end
     tags.uniq!
+    tags
   end
 end
