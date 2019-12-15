@@ -44,6 +44,9 @@ class MembershipsController < ApplicationController
     if !@membership
       flash[:message] = "This membership does not exist."
       redirect_to novel_memberships_path(@novel)
+    elsif @membership.user == current_user
+      flash[:message] = "You cannot edit your own membership in a novel."
+      redirect_to novel_memberships_path(@novel)
     elsif !admin_of?(@novel)
       flash[:message] = "You can only edit memberships for novels you are an Admin of."
       redirect_to novel_memberships_path(@novel)
