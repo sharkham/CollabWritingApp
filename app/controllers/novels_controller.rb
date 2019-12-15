@@ -63,13 +63,11 @@ class NovelsController < ApplicationController
     params.require(:novel).permit(
       :title,
       :summary,
-      # :membership,
       membership: [
         :id,
         :role,
         :user_id
       ] )
-    #include membership attributes here membership_attributes: [array of attributes]
   end
 
 end
