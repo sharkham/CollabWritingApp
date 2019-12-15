@@ -6,7 +6,6 @@ class Novel < ApplicationRecord
 
   accepts_nested_attributes_for :memberships
 
-  #Figure out how to do this without things breaking:
   validates :title, presence: true
 
 end
