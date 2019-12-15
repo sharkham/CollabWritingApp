@@ -8,10 +8,12 @@
 <% @novel.memberships.each do |membership| %>
   <li><%= link_to "#{membership.user.username}", user_path(membership.user) %> -
   <%= membership.role %></li>
+  <% if membership.user != current_user %>
   <ul>
   <li><%= link_to "Edit Membership", edit_novel_membership_path(@novel, membership) %></li>
   <li><%= button_to "Delete Membership", novel_membership_path(@novel, membership), method: :delete, data: { confirm: "Are you sure?" } %></li>
   </ul>
+  <% end %>
   <br>
 <% end %>
 </ul>
