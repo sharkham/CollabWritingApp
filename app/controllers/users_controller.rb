@@ -20,31 +20,6 @@ class UsersController < ApplicationController
     redirect_to root_path if !@user
   end
 
-  # def edit
-  #   require_login
-  #   @user = User.find_by(id: params[:id])
-  #   if @user != current_user || !@user
-  #     flash[:message] = "You can only edit your own profile."
-  #     redirect_to user_path(current_user)
-  #   end
-  # end
-
-  # def update
-  #   # binding.pry
-  #   @user = User.find_by(id: params[:id])
-  #   # @user.bio = params[:user][:bio]
-  #   # if @user.save
-  #   #   redirect_to user_path(@user)
-  #   # else
-  #   #   render :edit
-  #   # end
-  #   if @user.update_attribute(bio: params[:user][:bio])
-  #     redirect_to user_path(@user)
-  #   else
-  #     render :edit
-  #   end
-  # end
-
 
   private
 
@@ -52,7 +27,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :email, :password)
   end
 
-  # def bio_param
-  #   params.require(:user).permit(:bio)
-  # end
 end
