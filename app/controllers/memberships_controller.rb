@@ -21,7 +21,7 @@ class MembershipsController < ApplicationController
     if @membership.valid? && @membership != nil
       @membership.save
       #there's an error for if there are no more eligible members here, figure out how to get rid of.
-      redirect_to novel_path(membership_params[:novel_id])
+      redirect_to novel_memberships_path(membership_params[:novel_id])
     else
       render :new
     end
