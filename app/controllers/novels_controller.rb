@@ -8,8 +8,7 @@ class NovelsController < ApplicationController
   def create
     @novel = Novel.new(title: novel_params[:title], summary: novel_params[:summary])
     if @novel.save
-      @novel.memberships.build(role: novel_params[:membership][:role], user_id: novel_params[:membership][:user_id])
-      @novel.save
+      @novel.memberships.build(novel_params[:membership]).save
       redirect_to novel_path(@novel)
     else
       flash[:errors] = @novel.errors.full_messages
