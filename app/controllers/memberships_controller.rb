@@ -29,7 +29,7 @@ class MembershipsController < ApplicationController
 
   def index
     @novel = Novel.find_by(id: params[:novel_id])
-    binding.pry
+    # binding.pry
     if !@novel
       flash[:message] = "This novel does not exist."
       redirect_to user_path(current_user)
